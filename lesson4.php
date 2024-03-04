@@ -18,7 +18,7 @@
     $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
     $sum = 0;
 
-    for($i = 4; $i < 7; $i++){
+    for($i = 3; $i < 6; $i++){
         $sum += $arr[$i];
     }
 
@@ -101,7 +101,7 @@
         if (is_array($value)){
             $i = 0;
             foreach($value as $nkey => $nvalue) {
-                if ($i === 2)
+                if ($i === 1)
                     echo $nkey."=>".$nvalue."<br>";
                 $i++;
             }
