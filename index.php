@@ -1,12 +1,12 @@
 <?php
 
-    require_once 'classes/Pow.php';
-    require_once 'classes/Plus.php';
-    require_once 'classes/Multiple.php';
-    require_once 'classes/MinusPlus.php';
-    require_once 'classes/DividePlus.php';
-    require_once 'classes/MinusMultiple.php';
-    require_once 'classes/DivideMultiple.php';
+// Подключаем автозагрузчик composer
+require_once __DIR__.'/vendor/autoload.php';
+
+use core\{Pow, Plus, Multiple};
+use app\{MinusPLus, DividePLus, MinusMultiple, DivideMultiple};
+
+
 
     // 1 exercise
     echo "Задание №1<br>";

@@ -1,6 +1,7 @@
 <?php
 
-    require_once 'classes/Calculate.php';
+    namespace core;
+    use \core\Calculate;
 
     // 2. Создать 3 наследника родительского класса. Каждый наследник должен содержать одно свойство.
     // Каждое свойство должно иметь геттер и сеттер.
@@ -33,11 +34,11 @@
         // И содержит модификатор доступа менее строгий(public) чем в классе родителе Calculate(protected)
         // public используем так как хотим чтобы был доступ к методу из глобального контекста
         public function powFunction(): int{
-            return pow(parent::getArgumentOne(), parent::getArgumentTwo()) + $this->getArgumentTree();
+            return pow(parent::getArgumentOne(), parent::getArgumentTwo()) + $this->argumentTree;
         }
 
         public function plusFunction(): int{
-            return parent::getArgumentOne() + parent::getArgumentTwo() + $this->getArgumentTree();
+            return parent::getArgumentOne() + parent::getArgumentTwo() + $this->argumentTree;
         }
     }
 

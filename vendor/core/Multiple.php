@@ -1,6 +1,7 @@
 <?php
 
-    require_once 'classes/Calculate.php';
+    namespace core;
+    use \core\Calculate;
 
     // 2. Создать 3 наследника родительского класса. Каждый наследник должен содержать одно свойство.
     // Каждое свойство должно иметь геттер и сеттер.
@@ -9,8 +10,7 @@
 
     // При наследовании от абстрактного класса, все методы, помеченные абстрактными в родительском классе,
     // должны быть определены в дочернем классе
-    // Если класс final, то наследников он иметь не может
-    final class Pow extends Calculate {
+    class Multiple extends Calculate {
 
         private int $argumentTree = 0;
 
@@ -30,11 +30,15 @@
             $this->argumentTree = $argumentTree;
         }
 
-        // Абстрактный метод powFunction класса Calculate переопределен в классе потомке Pow
+        // Абстрактный метод powFunction класса Calculate переопределен в классе потомке Plus
         // И содержит модификатор доступа менее строгий(public) чем в классе родителе Calculate(protected)
         // public используем так как хотим чтобы был доступ к методу из глобального контекста
         public function powFunction(): int{
-            return pow(parent::getArgumentOne(), parent::getArgumentTwo()) * $this->getArgumentTree();
+            return pow(parent::getArgumentOne(), parent::getArgumentTwo()) - $this->argumentTree;
+        }
+
+        public function multipleFunction(): int{
+            return parent::getArgumentOne() * parent::getArgumentTwo() * $this->argumentTree;
         }
     }
 

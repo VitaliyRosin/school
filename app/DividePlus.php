@@ -1,12 +1,17 @@
 <?php
 
+namespace app;
+
+use core\Plus;
+use core\Calculate;
+
 // 3. Создать по 2 наследника от наследников первого уровня. Каждое свойство должно иметь геттер и сеттер.
 // Наследники должны реализовать по одному методу который выполняет одно математическое действие с данными родителя
 // и своими данными. И по одному методу который выполняет любое математическое действие со свойством корневого класса
 // и своим свойством. В случае если реализован наследник класса содержащего абстрактную функцию
 // то класс должен содержать реализацию абстракции.
 
-class DivideMultiple extends PLus
+class DividePLus extends PLus
 {
 
     private int $argumentFour = 0;
@@ -29,15 +34,15 @@ class DivideMultiple extends PLus
 
     // В наследнике реализован метод, который выполняет одно математическое действие с данными родителя
     // и своими данными.
-    public function divideMultipleFunction(): int
+    public function dividePlusFunction(): float
     {
-        return parent::getArgumentTree() / 2 - $this->getArgumentFour();
+        return parent::getArgumentTree() / $this->argumentFour;
     }
 
     // В наследнике реализован метод, который выполняет одно математическое действие со свойством корневого класса
     // и своим свойством
-    public function divideMultipleCalcFunction(): int
+    public function dividePlusCalcFunction(): float
     {
-        return Calculate::getArgumentOne() / 2 - $this->getArgumentFour();
+        return Calculate::getArgumentOne() / $this->argumentFour;
     }
 }
