@@ -10,7 +10,7 @@ final class Router
 
         if (strpos($url, "/") > 0){
             $arr = explode("/", $url);
-            $controller_name = $arr[0];
+            $controller_name = ucfirst($arr[0]);
             $action_name = $arr[1];
         }elseif(empty($url)){
             $controller_name = 'Main';
