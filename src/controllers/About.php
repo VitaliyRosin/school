@@ -4,13 +4,12 @@
 namespace controllers;
 
 
+use core\Viewer;
+
 class About
 {
-    public function index(){
-        echo 'Страница о нас';
+    public function __construct(array $url){
+        Viewer::view($url);
     }
 
-    public function contacts(){
-        echo 'Старница контактов';
-    }
 }

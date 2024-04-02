@@ -6,33 +6,23 @@ use controllers\Errors;
 final class Router
 {
     public function run(){
-        $url = substr($_SERVER['REQUEST_URI'], 1);
-
-        if (strpos($url, "/") > 0){
-            $arr = explode("/", $url);
-            $controller_name = ucfirst($arr[0]);
-            $action_name = $arr[1];
-        }elseif(empty($url)){
-            $controller_name = 'Main';
-            $action_name = 'index';
+        $url = empty($_SERVER['REDIRECT_URL']) ? "/" : $_SERVER['REDIRECT_URL'];
+        $config = include_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'common.php';
+        if (array_key_exists($url, $config)){
+            $url = explode(":", $config[$url]);
         }else{
-            $controller_name = $url;
+            echo '404';
+            exit;
         }
 
-        $path = 'controllers\\'.$controller_name;
+        $constPath = 'controllers\\';
 
+        $path = $constPath.$url[0];
         if (!class_exists($path)) {
             Errors::controller();
             exit;
         }
 
-        $controller = new $path();
-
-        if(!method_exists($path, $action_name)){
-            Errors::index();
-            exit;
-        }
-
-        $controller->$action_name();
+        $controller = new $path($url);
     }
 }

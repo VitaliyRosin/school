@@ -3,10 +3,11 @@
 
 namespace controllers;
 
+use core\Viewer;
 
 class Main
 {
-    public function index(){
-        echo 'Главная страница';
+    public function __construct(array $url){
+        Viewer::view($url);
     }
 }
