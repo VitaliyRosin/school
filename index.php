@@ -1,6 +1,11 @@
 <?php
-    echo 'Hello world';
-    echo PHP_EOL;
-    echo 1;
-    echo 3;
-?>
+
+require_once 'vendor/autoload.php';
+
+use core\Router;
+use controllers\Main;
+
+$router = new Router();
+$router->run();
+
+
