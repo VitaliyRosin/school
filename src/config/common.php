@@ -9,7 +9,10 @@ return [
     '/gallery/show' => 'Gallery:show',
     '/gallery/create' => 'Gallery:create',
     '/gallery/delete' => 'Gallery:delete',
-    '/about' => 'About:index',
-    '/about/index' => 'About:index',
-    '/about/contacts' => 'About:contacts',
+    '/user' => 'User:index',
+    '/user/index' => 'User:index',
+    '/user/contacts' => 'User:contacts',
+    '/post' => 'Post:index',
+    '/post/index' => 'Post:index',
+    '/post/read' => 'Post:read',
 ];

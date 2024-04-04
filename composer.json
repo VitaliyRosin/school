@@ -4,7 +4,8 @@
     "psr-4": {
       "core\\": "src/core",
       "controllers\\": "src/controllers",
-      "views\\": "src/views"
+      "views\\": "src/views",
+      "models\\": "src/models"
     }
   }
 }

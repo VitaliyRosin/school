@@ -3,25 +3,26 @@
 namespace controllers;
 
 use core\Viewer;
-use models\Galleries;
+use models\Users;
 
-class Gallery
+class User
 {
     private $model;
     private $url;
 
     public function __construct(array $url){
-        $this->model = new Galleries();
+        $this->model = new Users();
         $this->url = $url;
     }
 
     public function index(){
-        $data['pictures'] = $this->model->findAll();
+        $data['users'] = $this->model->findAll();
         Viewer::view($this->url, $data);
     }
 
-    public function show(){
-        $data['picture'] = $this->model->findOne(1);
+    public function contacts(){
+        $data['user'] = $this->model->findOne(1);
         Viewer::view($this->url, $data);
     }
+
 }

@@ -24,5 +24,14 @@ final class Router
         }
 
         $controller = new $path($url);
+
+        if(!method_exists($path, $url[1])){
+            Errors::index();
+            exit;
+        }
+
+        $action_name = $url[1];
+
+        $controller->$action_name();
     }
 }

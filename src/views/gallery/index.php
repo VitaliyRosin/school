@@ -1,2 +1,17 @@
-<H1>Добро пожаловать в Галерею</H1>
-<p>На этой странице можно выбрать фотографию для просмотра</p>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Text</th>
+        <th>DateTime</th>
+        <th>User</th>
+    </tr>
+    <?php foreach($pictures as $picture): ?>
+        <tr>
+            <td><?= $picture['id'] ?></td>
+            <td><?= $picture['title'] ?></td>
+            <td><?= $picture['url'] ?></td>
+            <td><?= $picture['date_time'] ?></td>
+        </tr>
+    <?php endforeach ?>
+</table>
