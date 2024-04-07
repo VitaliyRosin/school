@@ -5,7 +5,8 @@
       "core\\": "src/core",
       "controllers\\": "src/controllers",
       "views\\": "src/views",
-      "models\\": "src/models"
+      "models\\": "src/models",
+      "orm\\": "src/orm"
     }
   }
 }

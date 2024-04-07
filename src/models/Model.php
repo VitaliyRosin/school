@@ -11,5 +11,4 @@ class Model
     public function findAll(): array{
         return $this->models;
     }
-
 }

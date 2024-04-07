@@ -8,7 +8,7 @@ class Galleries extends Model
         'id' => 1,
         'title' => 'Picture 1 title',
         'size' => '93 403 kb',
-        'user' => 'Picture 1 user',
+        'user' => 'User 1',
     ];
     protected array $models = [
         [

@@ -11,6 +11,10 @@ class ComposerStaticInitcf4899d8c8c3211fb91d990d8c785d95
         array (
             'views\\' => 6,
         ),
+        'o' => 
+        array (
+            'orm\\' => 4,
+        ),
         'm' => 
         array (
             'models\\' => 7,
@@ -26,6 +30,10 @@ class ComposerStaticInitcf4899d8c8c3211fb91d990d8c785d95
         'views\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/views',
+        ),
+        'orm\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/orm',
         ),
         'models\\' => 
         array (
