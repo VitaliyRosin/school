@@ -5,5 +5,5 @@ return [
     'host' => 'localhost',
     'dbname' => 'social',
     'user' => 'root',
-    'password' => null,
+    'password' => '',
 ];
