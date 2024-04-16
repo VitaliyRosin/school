@@ -22,7 +22,7 @@ class Delete
 
     public function setConditions(string $conditions): void
     {
-        $this->tableName = $tableName;
+        $this->conditions = $conditions;
     }
 
 }
