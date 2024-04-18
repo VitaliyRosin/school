@@ -20,7 +20,6 @@ final class Connect
     {
         $config = include_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'dbconfig.php';
         $this->dns = $config['driver'].':host='.$config['host'].';dbname='.$config['dbname'];
-        echo $this->dns;
         $this->username = $config['user'];
         $this->password = $config['password'];
     }

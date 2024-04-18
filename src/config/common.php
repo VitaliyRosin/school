@@ -15,4 +15,8 @@ return [
     '/post' => 'Post:index',
     '/post/index' => 'Post:index',
     '/post/read' => 'Post:read',
+    '/post/create' => 'Post:create',
+    '/post/update' => 'Post:update',
+    '/user/create' => 'User:create',
+    '/user/update' => 'User:update',
 ];
