@@ -8,6 +8,7 @@ return [
     '/gallery/index' => 'Gallery:index',
     '/gallery/show' => 'Gallery:show',
     '/gallery/create' => 'Gallery:create',
+    '/gallery/update' => 'Gallery:update',
     '/gallery/delete' => 'Gallery:delete',
     '/user' => 'User:index',
     '/user/index' => 'User:index',
@@ -17,6 +18,8 @@ return [
     '/post/read' => 'Post:read',
     '/post/create' => 'Post:create',
     '/post/update' => 'Post:update',
+    '/post/delete' => 'Post:delete',
     '/user/create' => 'User:create',
     '/user/update' => 'User:update',
+    '/user/delete' => 'User:delete',
 ];

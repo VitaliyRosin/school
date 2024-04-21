@@ -22,11 +22,6 @@ class User
         Viewer::view($this->url, $data);
     }
 
-    public function contacts(){
-        $data['user'] = $this->model->findOne(1);
-        Viewer::view($this->url, $data);
-    }
-
     public function create(){
         if(!empty($_POST['save'])){
             $this->model = new Users();
@@ -38,9 +33,19 @@ class User
     public function update(){
         if(!empty($_POST['save'])){
             $this->model = new Users();
-            $this->model->update($_POST);
+            $this->model->update($_POST, $_POST['user_id']);
+            header('Location: /user/index');
         }
         Viewer::view($this->url);
+    }
+
+    public function delete(){
+        if(!empty($_GET['id'])){
+            $this->model = new Users();
+            $this->model->Delete($_GET['id']);
+        }
+
+        header('Location: /user/index');
     }
 
 }

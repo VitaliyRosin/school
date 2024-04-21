@@ -38,8 +38,18 @@ class Post
     public function update(){
         if(!empty($_POST['save'])){
             $this->model = new Posts();
-            $this->model->update($_POST);
+            $this->model->update($_POST, $_POST['post_id']);
+            header('Location: /post/index');
         }
         Viewer::view($this->url);
+    }
+
+    public function delete(){
+        if(!empty($_GET['id'])){
+            $this->model = new Posts();
+            $this->model->Delete($_GET['id']);
+        }
+
+        header('Location: /post/index');
     }
 }

@@ -8,7 +8,11 @@ class Select extends sql implements query
 
     public function buildQuery() : string
     {
-        return 'SELECT ' . $this->fields . ' FROM ' . $this->tableName;
+        $sql = 'SELECT ' . $this->fields . ' FROM ' . $this->tableName;
+        if(!empty($this->where)){
+            $sql .= $this->where;
+        }
+        return $sql;
     }
 
 
