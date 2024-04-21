@@ -4,19 +4,14 @@
 namespace orm;
 
 
-class Delete
+class Delete extends sql implements query
 {
-    //DELETE FROM table_name WHERE condition;
-    private string $conditions = '';
-
     public function buildQuery() : string
     {
-        return 'DELETE FROM ' . $this->tableName . ' WHERE ' . $this->conditions;
+        $sql = 'DELETE FROM ' . $this->tableName;
+        if(!empty($this->where)){
+            $sql .= $this->where;
+        }
+        return $sql;
     }
-
-    public function setConditions(string $conditions): void
-    {
-        $this->conditions = $conditions;
-    }
-
 }

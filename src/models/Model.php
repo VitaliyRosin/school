@@ -4,8 +4,8 @@ namespace models;
 
 use orm\Insert;
 use orm\Select;
-use orm\sql;
 use orm\Update;
+use orm\Delete;
 
 class Model
 {
@@ -27,7 +27,14 @@ class Model
         $insert->setFields($this->getFields($data));
         $insert->setValues($this->getValues($data));
         $insert->execute();
+    }
 
+    public function Delete($id): void
+    {
+        $delete = new Delete();
+        $delete->setTableName($this->tableName);
+        $delete->andWhere([['eq', 'id', $id]]);
+        $delete->execute();
     }
 
     private function getFields(array $data): array
@@ -52,11 +59,14 @@ class Model
         return $result;
     }
 
-    public function update(array $data): void
+    public function update(array $data, $id): void
     {
         $update = new Update();
         $update->setTableName($this->tableName);
         $update->setSets($this->getSets($data));
+        $update->andWhere([['eq', 'id', $id]]);
+        //echo $id;
+        //echo $update->buildQuery();
         $update->execute();
     }
 

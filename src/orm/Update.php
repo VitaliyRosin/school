@@ -10,7 +10,11 @@ class Update extends sql implements query
 
     public function buildQuery() : string
     {
-        return 'UPDATE ' . $this->tableName . ' SET ' . $this->sets;
+        $sql = 'UPDATE ' . $this->tableName . ' SET ' . $this->sets;
+        if(!empty($this->where)){
+            $sql .= $this->where;
+        }
+        return $sql;
     }
 
     public function setSets(string|array $values): void

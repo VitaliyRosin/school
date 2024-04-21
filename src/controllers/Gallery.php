@@ -20,11 +20,6 @@ class Gallery
         Viewer::view($this->url, $data);
     }
 
-    public function show(){
-        $data['picture'] = $this->model->findOne(1);
-        Viewer::view($this->url, $data);
-    }
-
     public function create(){
         if(!empty($_POST['save'])){
             $this->model = new Galleries();
@@ -34,10 +29,19 @@ class Gallery
     }
 
     public function update(){
-        if(!empty($_POST['save'])){
+        if(!empty($_POST['save'])) {
             $this->model = new Galleries();
-            $this->model->update($_POST);
+            $this->model->update($_POST, $_POST['gallery_id']);
+            header('Location: /gallery/index');
         }
         Viewer::view($this->url);
+    }
+
+    public function delete(){
+        if(!empty($_GET['id'])){
+            $this->model = new Galleries();
+            $this->model->Delete($_GET['id']);
+        }
+        header('Location: /gallery/index');
     }
 }

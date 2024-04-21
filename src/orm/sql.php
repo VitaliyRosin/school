@@ -11,14 +11,16 @@ abstract class sql
     protected PDO $connect;
     protected PDOStatement $statement;
     protected string $tableName = '';
+    private Where $where_obj;
+    protected string $where = '';
 
     public function __construct(){
         $this->connect = (new Connect())->getConnect();
+        $this->where_obj = new Where();
     }
 
     public function execute(){
         $this->statement = $this->connect->query($this->buildQuery());
-        $this->statement->execute();
     }
 
     public function setTableName(string|array $tableName): void
@@ -31,5 +33,15 @@ abstract class sql
         }else{
             $this->tableName = $tableName;
         }
+    }
+
+    public function andWhere(array $condition):void
+    {
+        $this->where = $this->where_obj->andWhere($condition);
+    }
+
+    public function orWhere(array $condition):void
+    {
+        $this->where = $this->where_obj->orWhere($condition);
     }
 }
